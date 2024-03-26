@@ -4,14 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+
+    <style>
+        .product-card{
+            border: 2px solid black;
+            padding: 5px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .product-img{
+            width: 95%;
+            height: 260px;
+            border-radius: 10px;
+        }
+
+        .product-price{
+            margin-bottom: 21px;
+        }
+
+        .product-offer{
+            color: rgb(47, 167, 47);
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
     <div class="product-card">
 
-        <img src="product1.webp" alt="tshirt-img"/>
-        <h3>Men Solid Round Neck Cotton Blend Grey T-Shirt</h3>
-        <p>₹270 <del>₹399</del></p>
+        <img class="product-img" src="product1.webp" alt="tshirt-img"/>
+        <h3 >Men Solid Round Neck Cotton Blend Grey T-Shirt</h3>
+        <span class="product-price">₹270 <del>₹399</del><span class="product-offer"> 78% off</span></span>
+        <span>Size: S,M,L,XL,XXL</span>
 
     </div>
     
