@@ -10,7 +10,7 @@
         .product-card {
             border: 2px solid black;
             padding: 5px;
-            width: 200px;
+            width: 250px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -22,7 +22,7 @@
 
         .product-img {
             width: 95%;
-            height: 260px;
+            height: 320px;
             border-radius: 10px;
         }
 
@@ -35,8 +35,10 @@
             font-weight: bold;
         }
 
-        .color-r {
-            background-color: brown;
+        .color-img{
+            padding: 8px;
+            cursor: pointer;
+           
         }
     </style>
 </head>
@@ -45,22 +47,51 @@
 
     <div class="product-card">
 
-        <img class="product-img" src="product1.webp" alt="tshirt-img" />
+        <img class="product-img" id="pro-img" src="./t-shirt/red.webp" alt="tshirt-img" />
         <h3>Men Solid Round Neck Cotton Blend Grey T-Shirt</h3>
         <span class="product-price">₹270 <del>₹399</del><span class="product-offer"> 78% off</span></span>
         <span>Size: S,M,L,XL,XXL</span>
 
-        <div class="colo-img">
-            <img src="maroon.png" alt="maroon-color">
-            <img src="yellow.png" alt="yellow-color">
-            <img src="black.png" alt="black-color">
-            <img src="blue.png" alt="blue-color">
+        <div class="color">
+            <img class="color-img" id="maroon" src="./color/maroon.png" alt="maroon-color" onclick='maroon()'>
+            <img class="color-img" id="yellow" src="./color/yellow.png" alt="yellow-color" onclick='yellow()'>
+            <img class="color-img" id="black" src="./color/black.png" alt="black-color" onclick='black()'>
+            <img class="color-img" id="blue" src="./color/blue.png" alt="blue-color" onclick='blue()'>
         </div>
 
 
 
     </div>
 
+    <script>
+
+        function maroon()
+        {
+
+            const m = document.getElementById('pro-img');
+            m.src = "./t-shirt/red.webp";
+
+        }
+
+        function yellow()
+        {
+            const m = document.getElementById('pro-img');
+            m.src = "./t-shirt/yellow.webp";
+        }
+
+        function black()
+        {
+            const m = document.getElementById('pro-img');
+            m.src = "./t-shirt/black.webp"; 
+        }
+
+        function blue()
+        {
+            const m = document.getElementById('pro-img');
+            m.src = "./t-shirt/blue.webp";
+        }
+
+    </script>
 </body>
 
 </html>
