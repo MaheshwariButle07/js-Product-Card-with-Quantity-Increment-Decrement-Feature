@@ -43,6 +43,12 @@
 
         .sign-img{
             height: 40px;
+            padding: 20px;
+        }
+
+        .sign{
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>
@@ -63,12 +69,12 @@
             <img class="color-img" id="blue" src="./color/blue.png" alt="blue-color" onclick='blue()'>
         </div>
 
-        <div>
-            <img class="sign-img" src="./i/d-oprator/minus.png" alt="minus-img">
+        <div class="sign">
+            <img class="sign-img" src="./i/d-oprator/minus.png" alt="minus-img" id="minus-sign" onclick='minusSign'>
 
-            <span></span>
+            <span class="quantity-text">1</span>
 
-            <img class="sign-img" src="./i/d-oprator/plus.png" alt="plus-img">
+            <img class="sign-img" src="./i/d-oprator/plus.png" alt="plus-img" id="plus-sign" onclick='plusSign'>
 
         </div>
 
@@ -101,6 +107,42 @@
         {
             const m = document.getElementById('pro-img');
             m.src = "./t-shirt/blue.webp";
+        }
+
+        function minusSign()
+        {
+
+            const QuantityText = getElementById('quantity-text');
+            let quntity = QuantityText.innerText;
+
+            if(QuantityText.innerText > 10)
+            {
+                QuantityText.innerText = --quntity;
+            }
+
+            else
+            {
+                alert('Minimum Limit Reached!!')
+            }
+
+        }
+
+        function plusSign()
+        {
+
+            const QuantityText = document.getElementById('quantity-text');
+            let quntity = QuantityText.innerText;
+
+            if(QuantityText.innerText < 10)
+            {
+               QuantityText.innerText = ++quntity; 
+            }
+
+            else
+            {
+                alert('Maximum Limit Reached!');
+            }
+
         }
 
     </script>
