@@ -7,6 +7,12 @@
     <title></title>
 
     <style>
+
+        .product{
+            display: flex;
+            justify-content: center;
+        }
+
         .product-card {
             border: 2px solid black;
             padding: 5px;
@@ -35,18 +41,19 @@
             font-weight: bold;
         }
 
-        .color-img{
+        .color-img {
             padding: 8px;
             cursor: pointer;
-           
+
         }
 
-        .sign-img{
+        .sign-img {
             height: 40px;
             padding: 20px;
+            cursor: pointer;
         }
 
-        .sign{
+        .sign {
             display: flex;
             align-items: center;
         }
@@ -55,91 +62,84 @@
 
 <body>
 
-    <div class="product-card">
+    <div class="product">
+        <div class="product-card">
 
-        <img class="product-img" id="pro-img" src="./t-shirt/red.webp" alt="tshirt-img" />
-        <h3>Men Solid Round Neck Cotton Blend Grey T-Shirt</h3>
-        <span class="product-price">₹270 <del>₹399</del><span class="product-offer"> 78% off</span></span>
-        <span>Size: S,M,L,XL,XXL</span>
+            <img class="product-img" id="pro-img" src="./t-shirt/red.webp" alt="tshirt-img" />
+            <h3>Men Solid Round Neck Cotton Blend Grey T-Shirt</h3>
+            <span class="product-price">₹270 <del>₹399</del><span class="product-offer"> 78% off</span></span>
+            <span>Size: S,M,L,XL,XXL</span>
 
-        <div class="color">
-            <img class="color-img" id="maroon" src="./color/maroon.png" alt="maroon-color" onclick='maroon()'>
-            <img class="color-img" id="yellow" src="./color/yellow.png" alt="yellow-color" onclick='yellow()'>
-            <img class="color-img" id="black" src="./color/black.png" alt="black-color" onclick='black()'>
-            <img class="color-img" id="blue" src="./color/blue.png" alt="blue-color" onclick='blue()'>
+            <div class="color">
+                <img class="color-img" id="maroon" src="./color/maroon.png" alt="maroon-color" onclick='maroon()'>
+                <img class="color-img" id="yellow" src="./color/yellow.png" alt="yellow-color" onclick='yellow()'>
+                <img class="color-img" id="black" src="./color/black.png" alt="black-color" onclick='black()'>
+                <img class="color-img" id="blue" src="./color/blue.png" alt="blue-color" onclick='blue()'>
+            </div>
+
+            <div class="sign">
+                <img class="sign-img" src="./i/d-oprator/minus.png" alt="minus-img" id="minus-sign"
+                    onclick='minusSign()'>
+
+                <sapn id="quantity-text">1</sapn>
+
+                <img class="sign-img" src="./i/d-oprator/plus.png" alt="plus-img" id="plus-sign" onclick='plusSign()'>
+
+            </div>
+
+
         </div>
-
-        <div class="sign">
-            <img class="sign-img" src="./i/d-oprator/minus.png" alt="minus-img" id="minus-sign" onclick='minusSign'>
-
-            <span class="quantity-text">1</span>
-
-            <img class="sign-img" src="./i/d-oprator/plus.png" alt="plus-img" id="plus-sign" onclick='plusSign'>
-
-        </div>
-
-
     </div>
 
     <script>
 
-        function maroon()
-        {
+        function maroon() {
 
             const m = document.getElementById('pro-img');
             m.src = "./t-shirt/red.webp";
 
         }
 
-        function yellow()
-        {
+        function yellow() {
             const m = document.getElementById('pro-img');
             m.src = "./t-shirt/yellow.webp";
         }
 
-        function black()
-        {
+        function black() {
             const m = document.getElementById('pro-img');
-            m.src = "./t-shirt/black.webp"; 
+            m.src = "./t-shirt/black.webp";
         }
 
-        function blue()
-        {
+        function blue() {
             const m = document.getElementById('pro-img');
             m.src = "./t-shirt/blue.webp";
         }
 
-        function minusSign()
-        {
+        function minusSign() {
 
-            const QuantityText = getElementById('quantity-text');
-            let quntity = QuantityText.innerText;
+            const QuantityText = document.getElementById('quantity-text');
+            let quntity = parseInt(QuantityText.innerText);
 
-            if(QuantityText.innerText > 10)
-            {
+            if (QuantityText.innerText > 1) {
                 QuantityText.innerText = --quntity;
             }
 
-            else
-            {
-                alert('Minimum Limit Reached!!')
+            else {
+                alert('Minimum Limit Reached!!');
             }
 
         }
 
-        function plusSign()
-        {
+        function plusSign() {
 
             const QuantityText = document.getElementById('quantity-text');
-            let quntity = QuantityText.innerText;
-
-            if(QuantityText.innerText < 10)
-            {
-               QuantityText.innerText = ++quntity; 
+            let quntity = parseInt(QuantityText.innerText);
+            QuantityText.innerText = +quntity;
+            if (QuantityText.innerText < 10) {
+                QuantityText.innerText = ++quntity;
             }
 
-            else
-            {
+            else {
                 alert('Maximum Limit Reached!');
             }
 
