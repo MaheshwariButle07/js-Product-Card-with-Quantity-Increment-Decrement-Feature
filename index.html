@@ -11,11 +11,12 @@
         .product{
             display: flex;
             justify-content: center;
+            
         }
 
         .product-card {
             border: 2px solid black;
-            padding: 5px;
+            padding: 6px;
             width: 250px;
             display: flex;
             flex-direction: column;
@@ -28,12 +29,12 @@
 
         .product-img {
             width: 95%;
-            height: 320px;
+           
             border-radius: 10px;
         }
 
         .product-price {
-            margin-bottom: 21px;
+            margin-bottom: 10px;
         }
 
         .product-offer {
@@ -42,20 +43,38 @@
         }
 
         .color-img {
-            padding: 8px;
+            padding: 4px;
             cursor: pointer;
 
         }
 
         .sign-img {
             height: 40px;
-            padding: 20px;
+            padding:15px;
             cursor: pointer;
         }
 
         .sign {
             display: flex;
             align-items: center;
+        }
+
+        .show{
+            padding: 4px;
+        }
+
+        .btn{
+            background-color: #ff9f00;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            padding: 5px 30px;
+            margin: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover{
+            background-color: #2196f3;
         }
     </style>
 </head>
@@ -65,7 +84,7 @@
     <div class="product">
         <div class="product-card">
 
-            <img class="product-img" id="pro-img" src="./t-shirt/red.webp" alt="tshirt-img" />
+            <img class="product-img" id="pro-img" src="./t-shirt/red.jpg" alt="tshirt-img" />
             <h3>Men Solid Round Neck Cotton Blend Grey T-Shirt</h3>
             <span class="product-price">₹270 <del>₹399</del><span class="product-offer"> 78% off</span></span>
             <span>Size: S,M,L,XL,XXL</span>
@@ -77,9 +96,13 @@
                 <img class="color-img" id="blue" src="./color/blue.png" alt="blue-color" onclick='blue()'>
             </div>
 
+            <span class="show">
+                <span id="show-qty">Qty: 1 x 270</span><br>
+                <span id="show-total">Total: 270</span>
+            </span>
+
             <div class="sign">
-                <img class="sign-img" src="./i/d-oprator/minus.png" alt="minus-img" id="minus-sign"
-                    onclick='minusSign()'>
+                <img class="sign-img" src="./i/d-oprator/minus.png" alt="minus-img" id="minus-sign" onclick='minusSign()'>
 
                 <sapn id="quantity-text">1</sapn>
 
@@ -87,6 +110,9 @@
 
             </div>
 
+            <button class="btn">
+                Buy Now
+            </button>
 
         </div>
     </div>
@@ -96,52 +122,65 @@
         function maroon() {
 
             const m = document.getElementById('pro-img');
-            m.src = "./t-shirt/red.webp";
+            m.src = "./t-shirt/red.jpg";
 
         }
 
         function yellow() {
             const m = document.getElementById('pro-img');
-            m.src = "./t-shirt/yellow.webp";
+            m.src = "./t-shirt/yellow.jpg";
         }
 
         function black() {
             const m = document.getElementById('pro-img');
-            m.src = "./t-shirt/black.webp";
+            m.src = "./t-shirt/black.jpg";
         }
 
         function blue() {
             const m = document.getElementById('pro-img');
-            m.src = "./t-shirt/blue.webp";
+            m.src = "./t-shirt/blue.jpg";
         }
 
         function minusSign() {
 
             const QuantityText = document.getElementById('quantity-text');
-            let quntity = parseInt(QuantityText.innerText);
+            const ShowQty = document.getElementById('show-qty');
+            const ShowTotal = document.getElementById('show-total');
+
+
+            let quantity = parseInt(QuantityText.innerText);
 
             if (QuantityText.innerText > 1) {
-                QuantityText.innerText = --quntity;
+                QuantityText.innerText = --quantity;
             }
 
             else {
                 alert('Minimum Limit Reached!!');
             }
 
+            ShowQty.innerText = `Qty: ${quantity} x 270` ;
+            ShowTotal.innerText = `Total: ${quantity * 270}`;
+
         }
 
         function plusSign() {
 
             const QuantityText = document.getElementById('quantity-text');
-            let quntity = parseInt(QuantityText.innerText);
-            QuantityText.innerText = +quntity;
+            const ShowQty = document.getElementById('show-qty');
+            const ShowTotal = document.getElementById('show-total');
+
+            let quantity = parseInt(QuantityText.innerText);
+            QuantityText.innerText = +quantity;
             if (QuantityText.innerText < 10) {
-                QuantityText.innerText = ++quntity;
+                QuantityText.innerText = ++quantity;
             }
 
             else {
                 alert('Maximum Limit Reached!');
             }
+
+            ShowQty.innerText = `Qty: ${quantity} x 270` ;
+            ShowTotal.innerText = `Total: ${quantity * 270} `;
 
         }
 
